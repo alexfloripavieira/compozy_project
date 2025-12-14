@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'apps.organizations',
     'apps.problems',
     'apps.documents',
+    'apps.tasks_app',
+    'apps.chat',
 ]
 
 MIDDLEWARE = [
@@ -102,6 +104,11 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Fixtures directories
+FIXTURE_DIRS = [
+    BASE_DIR / 'fixtures',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/6.0/ref/settings/#default-auto-field
