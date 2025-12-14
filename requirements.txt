@@ -1,0 +1,84 @@
+# Compozy Project - Python Dependencies
+# Versão: 1.0
+# Data: 14 de Dezembro de 2025
+
+# ============================================================================
+# Core Django Framework
+# ============================================================================
+Django>=5.0,<6.0  # Framework web principal - versão 5.0+ conforme tech spec
+
+# ============================================================================
+# Database
+# ============================================================================
+psycopg2-binary>=2.9.9,<3.0  # Driver PostgreSQL para Django
+dj-database-url>=2.1.0,<3.0  # Parser para DATABASE_URL environment variable
+
+# ============================================================================
+# Cache & Session (Redis)
+# ============================================================================
+redis>=5.0.0,<6.0  # Cliente Redis Python
+django-redis>=5.4.0,<6.0  # Backend Django para Redis (cache e sessões)
+
+# ============================================================================
+# Task Queue (Celery)
+# ============================================================================
+celery>=5.3.0,<6.0  # Task queue assíncrona
+django-celery-beat>=2.5.0,<3.0  # Scheduler para tarefas periódicas
+kombu>=5.3.0,<6.0  # Biblioteca de mensagens (dependência do Celery)
+billiard>=4.2.0,<5.0  # Pool de processos (dependência do Celery)
+
+# ============================================================================
+# AI Agents & APIs
+# ============================================================================
+anthropic>=0.18.0,<1.0  # SDK para Claude/Anthropic API
+openai>=1.12.0,<2.0  # SDK para OpenAI API
+
+# ============================================================================
+# Authentication & OAuth
+# ============================================================================
+django-allauth>=0.57.0,<1.0  # Autenticação social (GitHub OAuth - task 6.1)
+
+# ============================================================================
+# Development Tools
+# ============================================================================
+django-debug-toolbar>=4.2.0,<5.0  # Debug toolbar para desenvolvimento
+ipython>=8.18.0,<9.0  # Shell interativo melhorado (opcional, mas útil)
+
+# ============================================================================
+# Testing
+# ============================================================================
+pytest>=7.4.0,<8.0  # Framework de testes
+pytest-django>=4.7.0,<5.0  # Plugin pytest para Django
+pytest-cov>=4.1.0,<5.0  # Coverage reports para pytest
+pytest-xdist>=3.5.0,<4.0  # Execução paralela de testes (opcional)
+
+# ============================================================================
+# Code Quality & Formatting
+# ============================================================================
+black>=23.12.0,<25.0  # Formatação automática de código
+ruff>=0.1.9,<1.0  # Linter rápido (substitui flake8)
+mypy>=1.7.0,<2.0  # Type checking estático
+django-stubs>=4.2.0,<5.0  # Type stubs para Django (compatível com mypy)
+
+# ============================================================================
+# Utilities
+# ============================================================================
+python-dotenv>=1.0.0,<2.0  # Carregamento de variáveis de ambiente do .env
+Pillow>=10.2.0,<11.0  # Processamento de imagens (se necessário no futuro)
+
+# ============================================================================
+# Security (Production)
+# ============================================================================
+django-cors-headers>=4.3.0,<5.0  # CORS headers (se necessário para APIs)
+whitenoise>=6.6.0,<7.0  # Servir arquivos estáticos em produção (opcional)
+
+# ============================================================================
+# Notas de Compatibilidade
+# ============================================================================
+# - Python 3.11+ requerido
+# - Django 5.0+ requer Python 3.10+
+# - Celery 5.3+ requerido para Django 5.0
+# - psycopg2-binary 2.9.9+ para PostgreSQL 16
+# - django-redis 5.4+ para Django 5.0
+# - anthropic 0.18+ para Claude API mais recente
+# - openai 1.12+ para OpenAI API v1

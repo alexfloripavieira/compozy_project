@@ -163,3 +163,47 @@ LOGGING = {
         },
     },
 }
+
+# ============================================================================
+# Celery Configuration
+# ============================================================================
+# Celery broker and result backend URLs are set in environment-specific settings
+# (dev.py and prod.py) using CELERY_BROKER_URL and CELERY_RESULT_BACKEND
+
+# Celery timezone (should match Django TIME_ZONE)
+CELERY_TIMEZONE = TIME_ZONE
+
+# Celery task serialization format
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_ACCEPT_CONTENT = ['json']
+
+# Celery task execution settings
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes
+CELERY_TASK_SOFT_TIME_LIMIT = 25 * 60  # 25 minutes
+CELERY_WORKER_SEND_TASK_EVENTS = True
+CELERY_TASK_SEND_SENT_EVENT = True
+
+# Celery result backend settings
+CELERY_RESULT_BACKEND_ALWAYS_RETRY = True
+CELERY_RESULT_BACKEND_MAX_RETRIES = 10
+CELERY_RESULT_EXPIRES = 3600  # Results expire after 1 hour
+
+# Celery worker settings
+CELERY_WORKER_PREFETCH_MULTIPLIER = 1
+CELERY_WORKER_MAX_TASKS_PER_CHILD = 1000
+
+# Celery Beat schedule for periodic tasks
+# Note: The cleanup_old_task_executions task will be created in Task 4
+# when the tasks_app is implemented. Until then, this schedule is configured
+# but the task will fail until it's implemented.
+CELERY_BEAT_SCHEDULE = {
+    'cleanup-old-tasks': {
+        'task': 'apps.tasks_app.tasks.cleanup_old_task_executions',
+        'schedule': 86400.0,  # Run daily (24 hours in seconds)
+        'options': {
+            'expires': 3600,  # Task expires after 1 hour if not executed
+        },
+    },
+}
