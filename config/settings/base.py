@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'apps.common',
     'apps.organizations',
     'apps.problems',
+    'apps.documents',
 ]
 
 MIDDLEWARE = [
