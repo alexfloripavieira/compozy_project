@@ -176,4 +176,6 @@ MUST_DO_LISTA_DE_TAREFAS.md
 TASKS.md
 tech-spec.md
 
-
+# Cursor Rules
+.cursor/
+.cursorrules
