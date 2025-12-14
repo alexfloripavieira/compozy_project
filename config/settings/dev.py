@@ -54,15 +54,16 @@ SESSION_CACHE_ALIAS = 'default'
 # Email backend (console for development)
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# Django Debug Toolbar (if installed)
-if DEBUG:
-    try:
-        import debug_toolbar
-        INSTALLED_APPS += ['debug_toolbar']
-        MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
-        INTERNAL_IPS = ['127.0.0.1', 'localhost']
-    except ImportError:
-        pass
+# Django Debug Toolbar - Disabled to avoid layout interference
+# Uncomment below to enable it when needed for debugging
+# if DEBUG:
+#     try:
+#         import debug_toolbar
+#         INSTALLED_APPS += ['debug_toolbar']
+#         MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
+#         INTERNAL_IPS = ['127.0.0.1', 'localhost']
+#     except ImportError:
+#         pass
 
 # Logging - More verbose in development
 # Create a deep copy to avoid mutating the shared LOGGING dict from base.py
